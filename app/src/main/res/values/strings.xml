@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Projekt Pola</string>
-    <string name="hint01">Suma pól</string>
+    <string name="hint01">Suma pól=</string>
     <string name="hint02">Dodaj kolejne pola</string>
-    <string name="hint11">Pole trójkąta</string>
+    <string name="hint11">Pole trójkąta=</string>
+    <string name="hint21">Pole prostokąta=</string>
+    <string name="hint31">Pole koła=</string>
     <string name="button01">RESETUJ</string>
     <string name="button02">TRÓJKĄT</string>
     <string name="button03">PROSTOKĄT</string>

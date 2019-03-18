@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="43dp"
             android:layout_weight="1"
-            android:text="OBLICZ" />
+            android:text="@string/button11" />
     </LinearLayout>
 
     <LinearLayout
@@ -68,20 +68,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Pole trójkąta" />
+            android:text="@string/hint11" />
 
         <Button
             android:id="@+id/backAndAddButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="DODAJ" />
+            android:text="@string/button12" />
 
         <Button
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="REZYGNACJA" />
+            android:text="@string/button13" />
     </LinearLayout>
 </LinearLayout>
