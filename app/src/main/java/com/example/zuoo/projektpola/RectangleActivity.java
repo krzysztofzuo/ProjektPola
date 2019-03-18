@@ -1,80 +1,73 @@
 package com.example.zuoo.projektpola;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-class Triangle {
-    private double a, b, c;
+import org.w3c.dom.Text;
 
-    Triangle(double _a, double _b, double _c) {
+class Rectangle {
+    private double a, b;
+
+    Rectangle(double _a, double _b) {
         a = _a;
         b = _b;
-        c = _c;
     }
 
     double area() {
-        double p = (a + b + c) / 2.0;
-        double w = (p - a) * (p - b) * (p - c) * p;
-        return Math.sqrt(w);
+        double p = (a * b);
+        return (p);
     }
 }
 
-
-public class TriangleActivity extends AppCompatActivity {
-    public final static String TRIANGLE_RESULT = "Area of triangle";
+public class RectangleActivity extends AppCompatActivity {
+    public final static String RECTANGLE_RESULT = "Area of rectangle";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_triangle);
+        setContentView(R.layout.activity_rectangle);
 
-        ((Button) findViewById(R.id.triangleCalcButton)).setOnClickListener(
+        ((Button) findViewById(R.id.rectangleCalcButton)).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
-                        double a = Double.parseDouble(((EditText) findViewById(R.id.aEditText)).getText().toString());
-                        double b = Double.parseDouble(((EditText) findViewById(R.id.bEditText)).getText().toString());
-                        double c = Double.parseDouble(((EditText) findViewById(R.id.cEditText)).getText().toString());
-
-                        Triangle T = new Triangle(a, b, c);
-
-                        ((TextView) findViewById(R.id.triangleResultTextView)).setText(Double.toString(T.area()));
+                        double a = Double.parseDouble(((EditText) findViewById(R.id.aRectangleEditText)).getText().toString());
+                        double b = Double.parseDouble(((EditText) findViewById(R.id.bRectangleEditText)).getText().toString());
+                        Rectangle Rect = new Rectangle(a, b);
+                        ((TextView) findViewById(R.id.rectangleResultTextView)).setText(Double.toString(Rect.area()));
                     }
                 }
-
         );
+
         ((Button) findViewById(R.id.backAndAddButton)).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String area_string = ((TextView) findViewById(R.id.triangleResultTextView)).getText().toString();
+                        String area_string = ((TextView) findViewById(R.id.rectangleResultTextView)).getText().toString();
                         Intent backIntent = new Intent();
-                        backIntent.putExtra(TRIANGLE_RESULT, area_string);
+                        backIntent.putExtra(RECTANGLE_RESULT, area_string);
                         setResult(RESULT_OK, backIntent);
                         finish();
                     }
                 }
-
         );
+
         ((Button) findViewById(R.id.backButton)).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Intent backIntent = new Intent();
-                        backIntent.putExtra(TRIANGLE_RESULT, "0.0");
+                        backIntent.putExtra(RECTANGLE_RESULT, "0.0");
                         setResult(RESULT_OK, backIntent);
                         finish();
                     }
                 }
-
         );
     }
-}
 
+}
