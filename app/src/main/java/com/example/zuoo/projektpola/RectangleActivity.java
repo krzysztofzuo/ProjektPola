@@ -25,7 +25,7 @@ class Rectangle {
 }
 
 public class RectangleActivity extends AppCompatActivity {
-    public final static String RECTANGLE_RESULT = "Area of rectangle";
+    public final static String RECTANGLE_RESULT = "Area";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

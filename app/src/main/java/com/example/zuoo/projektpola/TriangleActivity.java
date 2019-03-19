@@ -27,7 +27,7 @@ class Triangle {
 
 
 public class TriangleActivity extends AppCompatActivity {
-    public final static String TRIANGLE_RESULT = "Area of triangle";
+    public final static String TRIANGLE_RESULT = "Area";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,6 @@ public class TriangleActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
                         double a = Double.parseDouble(((EditText) findViewById(R.id.aEditText)).getText().toString());
                         double b = Double.parseDouble(((EditText) findViewById(R.id.bEditText)).getText().toString());
                         double c = Double.parseDouble(((EditText) findViewById(R.id.cEditText)).getText().toString());

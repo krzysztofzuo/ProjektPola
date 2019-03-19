@@ -8,8 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class Activity0 extends AppCompatActivity {
-    public static final int CODE_TRIANGLE = 10;
-    public static final int CODE_RECTANGLE = 10;
+    public static final int CODE_TRIANGLE = 1;
+    public static final int CODE_RECTANGLE = 2;
+    public static final int CODE_CIRCLE = 3;
     private double area;
 
     @Override
@@ -42,7 +43,7 @@ public class Activity0 extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        String new_area = data.getStringExtra(TriangleActivity.TRIANGLE_RESULT);        //TUTAJ ZMIENIĆ
+        String new_area = data.getExtras().get("Area").toString();
         area += Double.parseDouble(new_area);
         ((TextView) findViewById(R.id.resultTextView)).setText(Double.toString(area));
     }
