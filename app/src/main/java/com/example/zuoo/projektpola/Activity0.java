@@ -44,7 +44,17 @@ public class Activity0 extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent circleIntent = new Intent(Activity0.this, CircleActivity.class);
-                        startActivityForResult(circleIntent, CODE_RECTANGLE);
+                        startActivityForResult(circleIntent, CODE_CIRCLE);
+                    }
+                }
+        );
+
+        ((Button) findViewById(R.id.resetButton)).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        area = 0.0;
+                        ((TextView) findViewById(R.id.resultTextView)).setText(Double.toString(area));
                     }
                 }
         );

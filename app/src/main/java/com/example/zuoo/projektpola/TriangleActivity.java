@@ -91,8 +91,14 @@ public class TriangleActivity extends AppCompatActivity {
                         finish();
                     }
                 }
-
         );
+    }
+    @Override
+    public void onBackPressed() {
+        Intent backIntent = new Intent();
+        backIntent.putExtra(TRIANGLE_RESULT, "0.0");
+        setResult(RESULT_OK, backIntent);
+        finish();
     }
 }
 
