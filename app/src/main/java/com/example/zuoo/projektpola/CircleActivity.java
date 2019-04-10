@@ -17,7 +17,7 @@ class Circle {
     }
 
     double area() {
-        return Math.PI*r*r;
+        return Math.PI * r * r;
     }
 }
 
