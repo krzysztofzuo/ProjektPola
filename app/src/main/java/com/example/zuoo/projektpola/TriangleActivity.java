@@ -7,9 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 class Triangle {
-    private double a, b, c;
+    protected double a, b, c;
 
     Triangle(double _a, double _b, double _c) {
         a = _a;
@@ -45,8 +46,16 @@ public class TriangleActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        T = parse();
-                        ((TextView) findViewById(R.id.triangleResultTextView)).setText(Double.toString(T.area()));
+                        try {
+                            T = parse();
+                            if (T.a + T.b > T.c && T.b + T.c > T.a && T.c + T.a > T.b) {
+                                ((TextView) findViewById(R.id.triangleResultTextView)).setText(Double.toString(T.area()));
+                            } else
+                                Toast.makeText(TriangleActivity.this, "Niepoprawne boki trójkąta", Toast.LENGTH_SHORT).show();
+
+                        } catch (NumberFormatException e) {
+                            Toast.makeText(TriangleActivity.this, "Podaj długości wszystkich boków", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
 
@@ -55,12 +64,19 @@ public class TriangleActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        T = parse();
-                        Double result = T.area();
-                        Intent backIntent = new Intent();
-                        backIntent.putExtra(TRIANGLE_RESULT, result);
-                        setResult(RESULT_OK, backIntent);
-                        finish();
+                        try {
+                            T = parse();
+                            if (T.a + T.b > T.c && T.b + T.c > T.a && T.c + T.a > T.b) {
+                                Double result = T.area();
+                                Intent backIntent = new Intent();
+                                backIntent.putExtra(TRIANGLE_RESULT, result);
+                                setResult(RESULT_OK, backIntent);
+                                finish();
+                            } else
+                                Toast.makeText(TriangleActivity.this, "Niepoprawne boki trójkąta", Toast.LENGTH_SHORT).show();
+                        } catch (NumberFormatException e) {
+                            Toast.makeText(TriangleActivity.this, "Podaj długości wszystkich boków", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
 

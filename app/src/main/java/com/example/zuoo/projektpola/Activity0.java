@@ -42,9 +42,9 @@ public class Activity0 extends AppCompatActivity {
         ((Button) findViewById(R.id.circleButton)).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View view) {
                         Intent circleIntent = new Intent(Activity0.this, CircleActivity.class);
-                        startActivityForResult(circleIntent, CODE_CIRCLE);
+                        startActivityForResult(circleIntent, CODE_RECTANGLE);
                     }
                 }
         );
