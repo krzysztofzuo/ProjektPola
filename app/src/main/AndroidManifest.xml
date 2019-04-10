@@ -28,6 +28,10 @@
             android:name=".TriangleActivity"
             android:label="Pole trójkąta"></activity>
 
+        <activity
+            android:name=".CircleActivity"
+            android:label="Pole koła"></activity>
+
     </application>
 
 </manifest>

@@ -7,11 +7,18 @@
     android:orientation="vertical"
     tools:context=".RectangleActivity">
 
-    <ImageView
-        android:id="@+id/rectangleImageView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/rectangle" />
+        android:layout_height="166dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/rectangleImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="166dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/prostokat" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
