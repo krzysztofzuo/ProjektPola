@@ -24,7 +24,11 @@ class Circle {
 
 public class CircleActivity extends AppCompatActivity {
     public final static String CIRCLE_RESULT = "Area";
-
+    private Circle C;
+    Circle parse(){
+        double r = Double.parseDouble(((EditText) findViewById(R.id.rCircleEditText)).getText().toString());
+        return new Circle(r);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,11 +38,8 @@ public class CircleActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        double r = Double.parseDouble(((EditText) findViewById(R.id.rCircleEditText)).getText().toString());
-
-                        Circle T = new Circle(r);
-
-                        ((TextView) findViewById(R.id.circleResultTextView)).setText(Double.toString(T.area()));
+                        C = parse();
+                        ((TextView) findViewById(R.id.circleResultTextView)).setText(Double.toString(C.area()));
                     }
                 }
 
@@ -47,9 +48,10 @@ public class CircleActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String area_string = ((TextView) findViewById(R.id.circleResultTextView)).getText().toString();
+                        C = parse();
+                        Double result = C.area();
                         Intent backIntent = new Intent();
-                        backIntent.putExtra(CIRCLE_RESULT, area_string);
+                        backIntent.putExtra(CIRCLE_RESULT, result);
                         setResult(RESULT_OK, backIntent);
                         finish();
                     }

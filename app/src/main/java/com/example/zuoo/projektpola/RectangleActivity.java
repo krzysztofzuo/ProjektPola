@@ -26,6 +26,13 @@ class Rectangle {
 
 public class RectangleActivity extends AppCompatActivity {
     public final static String RECTANGLE_RESULT = "Area";
+    Rectangle Rect;
+
+    Rectangle parse(){
+        double a = Double.parseDouble(((EditText) findViewById(R.id.aRectangleEditText)).getText().toString());
+        double b = Double.parseDouble(((EditText) findViewById(R.id.bRectangleEditText)).getText().toString());
+        return new Rectangle(a,b);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +43,8 @@ public class RectangleActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        double a = Double.parseDouble(((EditText) findViewById(R.id.aRectangleEditText)).getText().toString());
-                        double b = Double.parseDouble(((EditText) findViewById(R.id.bRectangleEditText)).getText().toString());
-                        Rectangle Rect = new Rectangle(a, b);
+
+                        Rect = parse();
                         ((TextView) findViewById(R.id.rectangleResultTextView)).setText(Double.toString(Rect.area()));
                     }
                 }
@@ -48,9 +54,10 @@ public class RectangleActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String area_string = ((TextView) findViewById(R.id.rectangleResultTextView)).getText().toString();
+                        Rect = parse();
+                        double result = Rect.area();
                         Intent backIntent = new Intent();
-                        backIntent.putExtra(RECTANGLE_RESULT, area_string);
+                        backIntent.putExtra(RECTANGLE_RESULT, result);
                         setResult(RESULT_OK, backIntent);
                         finish();
                     }

@@ -27,28 +27,28 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/aEditText"
+            android:id="@+id/aTriangleEditText"
             android:layout_width="79dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <EditText
-            android:id="@+id/bEditText"
+            android:id="@+id/bTriangleEditText"
             android:layout_width="85dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <EditText
-            android:id="@+id/cEditText"
+            android:id="@+id/cTriangleEditText"
             android:layout_width="88dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <Button
             android:id="@+id/triangleCalcButton"

@@ -1,6 +1,5 @@
 package com.example.zuoo.projektpola;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +26,15 @@ class Triangle {
 
 
 public class TriangleActivity extends AppCompatActivity {
+    private Triangle T;
     public final static String TRIANGLE_RESULT = "Area";
+
+    Triangle parse() {
+        double a = Double.parseDouble(((EditText) findViewById(R.id.aTriangleEditText)).getText().toString());
+        double b = Double.parseDouble(((EditText) findViewById(R.id.bTriangleEditText)).getText().toString());
+        double c = Double.parseDouble(((EditText) findViewById(R.id.cTriangleEditText)).getText().toString());
+        return new Triangle(a, b, c);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +45,7 @@ public class TriangleActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        double a = Double.parseDouble(((EditText) findViewById(R.id.aEditText)).getText().toString());
-                        double b = Double.parseDouble(((EditText) findViewById(R.id.bEditText)).getText().toString());
-                        double c = Double.parseDouble(((EditText) findViewById(R.id.cEditText)).getText().toString());
-
-                        Triangle T = new Triangle(a, b, c);
-
+                        T = parse();
                         ((TextView) findViewById(R.id.triangleResultTextView)).setText(Double.toString(T.area()));
                     }
                 }
@@ -53,9 +55,10 @@ public class TriangleActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String area_string = ((TextView) findViewById(R.id.triangleResultTextView)).getText().toString();
+                        T = parse();
+                        Double result = T.area();
                         Intent backIntent = new Intent();
-                        backIntent.putExtra(TRIANGLE_RESULT, area_string);
+                        backIntent.putExtra(TRIANGLE_RESULT, result);
                         setResult(RESULT_OK, backIntent);
                         finish();
                     }
