@@ -51,10 +51,10 @@ public class TriangleActivity extends AppCompatActivity {
                             if (T.a + T.b > T.c && T.b + T.c > T.a && T.c + T.a > T.b) {
                                 ((TextView) findViewById(R.id.triangleResultTextView)).setText(Double.toString(T.area()));
                             } else
-                                Toast.makeText(TriangleActivity.this, "Niepoprawne boki trójkąta", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(TriangleActivity.this, "Niepoprawne boki trójkąta!", Toast.LENGTH_SHORT).show();
 
                         } catch (NumberFormatException e) {
-                            Toast.makeText(TriangleActivity.this, "Podaj długości wszystkich boków", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TriangleActivity.this, "Podaj długości wszystkich boków!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -73,9 +73,9 @@ public class TriangleActivity extends AppCompatActivity {
                                 setResult(RESULT_OK, backIntent);
                                 finish();
                             } else
-                                Toast.makeText(TriangleActivity.this, "Niepoprawne boki trójkąta", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(TriangleActivity.this, "Niepoprawne boki trójkąta!", Toast.LENGTH_SHORT).show();
                         } catch (NumberFormatException e) {
-                            Toast.makeText(TriangleActivity.this, "Podaj długości wszystkich boków", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TriangleActivity.this, "Podaj długości wszystkich boków!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -93,6 +93,7 @@ public class TriangleActivity extends AppCompatActivity {
                 }
         );
     }
+
     @Override
     public void onBackPressed() {
         Intent backIntent = new Intent();

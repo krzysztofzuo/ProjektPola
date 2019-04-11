@@ -54,7 +54,7 @@ public class Activity0 extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         area = 0.0;
-                        ((TextView) findViewById(R.id.resultTextView)).setText(Double.toString(area));
+                        ((TextView) findViewById(R.id.resultTextView)).setText("Suma pól = " + Double.toString(area));
                     }
                 }
         );
@@ -65,7 +65,7 @@ public class Activity0 extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         String new_area = data.getExtras().get("Area").toString();
         area += Double.parseDouble(new_area);
-        ((TextView) findViewById(R.id.resultTextView)).setText(Double.toString(area));
+        ((TextView) findViewById(R.id.resultTextView)).setText("Suma pól = " + Double.toString(area));
     }
 
 }
